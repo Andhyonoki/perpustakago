@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Pendaftaran - PustakaGO</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      background-color: #133E87;
+      color: white;
+      height: 100vh;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    /* ✅ Kontainer teks dan logo */
+    .sidebar .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .sidebar h4 {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .sidebar .logo {
+      width: 55px;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .menu-title {
+      font-size: 14px;
+      color: #E1AFD1;
+      margin-top: 10px;
+    }
+
+    .sidebar .btn-menu {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .btn-active {
+      background-color: #0056D2;
+      color: white;
+    }
+
+    .btn-inactive {
+      background-color: #9da9bb;
+      color: white;
+    }
+
+    .sidebar-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-weight: bold;
+    }
+
+    /* ===== Main Content ===== */
+    .main-content {
+      background-color: white;
+      border: 2px solid #007BFF;
+      border-radius: 6px;
+      margin: 20px;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #2D73D2;
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .header h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .result-section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .result-section i {
+      font-size: 80px;
+      color: #133E87;
+      margin-bottom: 20px;
+    }
+
+    .result-section p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+    }
+
+    .btn-retry {
+      background-color: #2D73D2;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 8px 30px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .btn-retry:hover {
+      background-color: #1e5ab0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ==============================
+       RESPONSIVE DESIGN
+    ===============================*/
+
+    /* Tablet dan layar sedang */
+    @media (max-width: 991px) {
+      .sidebar {
+        height: auto;
+        text-align: center;
+        padding: 20px 15px;
+      }
+
+      .sidebar .title-container {
+        flex-direction: column;
+      }
+
+      .sidebar .btn-menu {
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .sidebar-footer {
+        position: relative;
+        margin-top: 20px;
+        left: 0;
+      }
+
+      .main-content {
+        margin: 15px;
+      }
+
+      .result-section {
+        padding: 50px 15px;
+      }
+
+      .result-section i {
+        font-size: 70px;
+      }
+
+      .result-section p {
+        font-size: 15px;
+      }
+    }
+
+    /* Mobile kecil (HP) */
+    @media (max-width: 576px) {
+      .sidebar {
+        padding: 15px;
+      }
+
+      .sidebar h4 {
+        font-size: 18px;
+      }
+
+      .sidebar .logo {
+        width: 45px;
+      }
+
+      .sidebar .btn-menu {
+        font-size: 13px;
+        padding: 6px 10px;
+      }
+
+      .header h3 {
+        font-size: 18px;
+      }
+
+      .result-section {
+        padding: 40px 10px;
+      }
+
+      .result-section i {
+        font-size: 60px;
+      }
+
+      .result-section p {
+        font-size: 14px;
+      }
+
+      .btn-retry {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+
+      .main-content {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row no-gutters">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 sidebar position-relative">
+        <div class="title-container">
+          <h4>PustakaGO</h4>
+          <img src="logo.fix.jpg" alt="Logo PustakaGO" class="logo">
+        </div>
+
+        <div class="menu-title"></div>
+        <div class="mt-3 p-2 border border-dashed" style="border-color:#E1AFD1; border-style:dashed; border-width:1px;">
+          <a href="pendaftaran.html">
+            <button class="btn btn-menu btn-inactive">Pendaftaran Anggota</button>
+          </a>
+          <button class="btn btn-menu btn-active">Hasil Pendaftaran</button>
+          <a href="saran.html">
+            <button class="btn btn-menu btn-inactive">Masukan dan Saran</button>
+          </a>
+        </div>
+
+        <div class="sidebar-footer">
+          <p>PustakaGO</p>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10">
+        <div class="main-content">
+          <div class="header text-center">
+            <h3>Hasil Pendaftaran</h3>
+          </div>
+
+          <div class="result-section">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Pendaftaran anda gagal. Silahkan periksa kembali data yang anda masukkan dan coba lagi.</p>
+            <a href="pendaftaran.html"><button class="btn btn-retry mt-3">Daftar Ulang</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

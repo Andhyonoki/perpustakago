@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PustakaGO - Data Pendaftar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f8fc;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 250px;
+      background-color: #0b3553;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .sidebar-header {
+      text-align: center;
+    }
+
+    .sidebar-header h2 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-header p {
+      font-size: 0.8rem;
+      color: #9bb9d9;
+      letter-spacing: 1px;
+    }
+
+    /* Logo opsional */
+    .sidebar-header img {
+      width: 30px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* Menu */
+    .menu {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu a {
+      width: 80%;
+      padding: 12px 10px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 10px;
+      background-color: #2f7abf;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .menu a:nth-child(2),
+    .menu a:nth-child(3) {
+      background-color: #e5e9ef;
+      color: #0b3553;
+    }
+
+    .menu a:hover {
+      transform: scale(1.05);
+      background-color: #276ca8;
+      color: white;
+    }
+
+    /* Admin section */
+    .admin {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .admin-icon {
+      font-size: 40px;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+
+    .admin p {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ===== Main Content ===== */
+    .main-content {
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      padding: 30px;
+    }
+
+    .main-header {
+      background-color: #2f7abf;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    /* ===== Tabel ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+      background-color: #0b3553;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f2f5f9;
+    }
+
+    tbody tr:hover {
+      background-color: #e6f0ff;
+    }
+
+    /* ===== Tombol bawah ===== */
+    .bottom-btn {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .bottom-btn button {
+      background-color: #2f7abf;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .bottom-btn button:hover {
+      background-color: #276ca8;
+      transform: scale(1.03);
+    }
+
+    /* ===== Responsif ===== */
+    @media (max-width: 900px) {
+      .sidebar {
+        width: 200px;
+      }
+      .main-content {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+      }
+
+      .menu {
+        flex-direction: row;
+        margin-top: 0;
+      }
+
+      .menu a {
+        width: auto;
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+
+      .admin {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+      }
+
+      th, td {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-header {
+        font-size: 1rem;
+      }
+      .bottom-btn button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <div class="sidebar-header">
+        <h2>PustakaGO</h2>
+        <p>MENU</p>
+      </div>
+
+      <div class="menu">
+        <a href="#">Data Pendaftar</a>
+        <a href="#">Kelola Pendaftaran</a>
+        <a href="#">Kelola Masukan dan Saran</a>
+      </div>
+    </div>
+
+    <div class="admin">
+      <div class="admin-icon">👤</div>
+      <p>ADMIN</p>
+    </div>
+  </aside>
+
+  <!-- Konten utama -->
+  <main class="main-content">
+    <div class="main-header">Data Pendaftar</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>No. Telpon</th>
+          <th>NIK</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Sahid</td>
+          <td>Jl. Nanas No. 20</td>
+          <td>085376812582</td>
+          <td>73712398593239</td>
+          <td>Ditanggapi</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Firman</td>
+          <td>Jl. Timun No. 23</td>
+          <td>085677652832</td>
+          <td>737471823821741</td>
+          <td>Belum Ditanggapi</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Julistio</td>
+          <td>Jl. Apel No. 7</td>
+          <td>085397554346</td>
+          <td>73712934819473</td>
+          <td>Belum Ditanggapi</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bottom-btn">
+      <button>Kelola Pendaftaran</button>
+    </div>
+  </main>
+
+</body>
+</html>
